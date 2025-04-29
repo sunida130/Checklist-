@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>check listเที่ยวตุรเคีย</title>
+  <title>checklistเที่ยวตุรเคีย</title>
   <style>
     body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
     h1 { color: #cc0000; }
@@ -14,7 +14,7 @@
   </style>
 </head>
 <body>
-  <h1>เช็คลิสต์เที่ยวตุรเคีย</h1>
+  <h1>checklistเที่ยวตุรเคีย</h1>
   <ul>
     <li><label><input type="checkbox" /> พาสปอร์ต (หมดอายุไม่เกิน 6 เดือน)</label></li>
     <li><label><input type="checkbox" /> วีซ่า E-Visa ตุรเคีย (สมัครออนไลน์)</label></li>
