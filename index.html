@@ -32,6 +32,8 @@
     <ul id="travel-docs">
       <li><input type="checkbox"> พาสปอร์ต <button onclick="removeItem(this)">ลบ</button></li>
       <li><input type="checkbox"> ตั๋วเครื่องบิน <button onclick="removeItem(this)">ลบ</button></li>
+      <li><input type="checkbox"> ปลั๊กแปลงหัวแบบยุโรป (Type C/F) <button onclick="removeItem(this)">ลบ</button></li>
+      <li><input type="checkbox"> ยาประจำตัว <button onclick="removeItem(this)">ลบ</button></li>
     </ul>
     <form onsubmit="addItem(event, 'travel-docs')">
       <input type="text" placeholder="เพิ่มเอกสาร..." />
@@ -41,21 +43,6 @@
     <ul id="travel-stuff">
       <li><input type="checkbox"> เสื้อผ้า / ของใช้ส่วนตัว <button onclick="removeItem(this)">ลบ</button></li>
     </ul>
-    <h1>เที่ยวตุรเคีย</h1>
-  <ul>
-    <li><label><input type="checkbox" /> พาสปอร์ต (หมดอายุไม่เกิน 6 เดือน)<button onclick="removeItem(this)">ลบ</button></li>
-    <li><label><input type="checkbox" /> วีซ่า E-Visa ตุรเคีย (สมัครออนไลน์)</label></li>
-    <li><label><input type="checkbox" /> ตั๋วเครื่องบิน ไป-กลับ</label></li>
-    <li><label><input type="checkbox" /> จองที่พัก (โรงแรม / Airbnb)</label></li>
-    <li><label><input type="checkbox" /> ประกันการเดินทาง</label></li>
-    <li><label><input type="checkbox" /> เสื้อผ้าตามฤดูกาล (กันหนาว/สบาย)</label></li>
-    <li><label><input type="checkbox" /> ปลั๊กแปลงหัวแบบยุโรป (Type C/F)</label></li>
-    <li><label><input type="checkbox" /> เงินสด + บัตรเครดิต/เดบิต</label></li>
-    <li><label><input type="checkbox" /> SIM หรือ eSIM สำหรับใช้อินเทอร์เน็ต</label></li>
-    <li><label><input type="checkbox" /> กล้องถ่ายรูป / Power Bank</label></li>
-    <li><label><input type="checkbox" /> ยาประจำตัว</label></li>
-    <li><label><input type="checkbox" /> แผนที่ / แอพแปลภาษา</label></li>
-  </ul>
     <form onsubmit="addItem(event, 'travel-stuff')">
       <input type="text" placeholder="เพิ่มของใช้..." />
       <button type="submit">เพิ่ม</button>
