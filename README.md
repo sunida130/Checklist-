@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="th">
 <head>
-  <title>เช็คลิสต์เที่ยวตุรกี</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>เที่ยวตุรเคีย</title>
   <style>
-    body { font-family: sans-serif; max-width: 600px; margin: auto; }
-    h2 { color: #005f73; }
-    label { display: block; margin: 5px 0; }
+    body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
+    h1 { color: #cc0000; }
+    ul { list-style: none; padding: 0; }
+    li { margin-bottom: 10px; }
+    label { display: flex; align-items: center; }
+    input[type="checkbox"] { margin-right: 10px; }
   </style>
 </head>
 <body>
-  <h1>เช็คลิสต์เที่ยวตุรกี</h1>
-  <div id="checklist"></div>
-  <script>
-    const data = { "เอกสารสำคัญ": [  "หนังสือเดินทาง (Passport)",  "วีซ่า", "ตั๋วเครื่องบินไป-กลับ"     ],
-      "การเงิน": ["บัตรเครดิต", "เงินสด", "แอปธนาคาร"],  };
-    const checklistDiv = document.getElementById("checklist");
-    Object.entries(data).forEach(([category, items]) => {
-      const title = document.createElement("h2");
-      title.innerText = category;
-      checklistDiv.appendChild(title);
-      items.forEach((item, index) => {
-        const checkboxId = `${category}-${index}`;
-        const saved = localStorage.getItem(checkboxId) === "true";
-        const label = document.createElement("label");
-        label.innerHTML = `<input type="checkbox" id="${checkboxId}" ${saved ? "checked" : ""}> ${item}`;
-        checklistDiv.appendChild(label);
-        document.getElementById(checkboxId).addEventListener("change", e => {
-          localStorage.setItem(checkboxId, e.target.checked);
-        });
-      });
-    });
-  </script>
+  <h1>เที่ยวตุรเคีย</h1>
+  <ul>
+    <li><label><input type="checkbox" /> พาสปอร์ต (หมดอายุไม่เกิน 6 เดือน)</label></li>
+    <li><label><input type="checkbox" /> วีซ่า E-Visa ตุรเคีย (สมัครออนไลน์)</label></li>
+    <li><label><input type="checkbox" /> ตั๋วเครื่องบิน ไป-กลับ</label></li>
+    <li><label><input type="checkbox" /> จองที่พัก (โรงแรม / Airbnb)</label></li>
+    <li><label><input type="checkbox" /> ประกันการเดินทาง</label></li>
+    <li><label><input type="checkbox" /> เสื้อผ้าตามฤดูกาล (กันหนาว/สบาย)</label></li>
+    <li><label><input type="checkbox" /> ปลั๊กแปลงหัวแบบยุโรป (Type C/F)</label></li>
+    <li><label><input type="checkbox" /> เงินสด + บัตรเครดิต/เดบิต</label></li>
+    <li><label><input type="checkbox" /> SIM หรือ eSIM สำหรับใช้อินเทอร์เน็ต</label></li>
+    <li><label><input type="checkbox" /> กล้องถ่ายรูป / Power Bank</label></li>
+    <li><label><input type="checkbox" /> ยาประจำตัว</label></li>
+    <li><label><input type="checkbox" /> แผนที่ / แอพแปลภาษา</label></li>
+  </ul>
 </body>
 </html>
