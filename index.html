@@ -111,12 +111,36 @@
       </ul>
     </div>
 
-    <!-- ไปเที่ยว -->
-    <div id="travel" class="checklist-section">
-      <h2>ไปเที่ยว</h2>
+ <!-- เตรียมเที่ยวในประเทศ -->
+    <div id="travelin" class="checklist-section">
+      <h2>เตรียมเที่ยวในประเทศ</h2>
 
       <h4>เอกสาร</h4>
-      <ul id="travel-docs">
+      <ul id="travelin-docs">
+        <li><input type="checkbox" /> พาสปอร์ต <button onclick="removeItem(this)">ลบ</button></li>
+        <li><input type="checkbox" /> ตั๋วเครื่องบิน <button onclick="removeItem(this)">ลบ</button></li>
+      </ul>
+      <form onsubmit="addItem(event, 'travel-docs')">
+        <input type="text" placeholder="เพิ่มเอกสาร..." />
+        <button type="submit">เพิ่ม</button>
+      </form>
+
+      <h4>ของใช้</h4>
+      <ul id="travelin-stuff">
+        <li><input type="checkbox" /> เสื้อผ้า / ของใช้ส่วนตัว <button onclick="removeItem(this)">ลบ</button></li>
+      </ul>
+      <form onsubmit="addItem(event, 'travelin-stuff')">
+        <input type="text" placeholder="เพิ่มของใช้..." />
+        <button type="submit">เพิ่ม</button>
+      </form>
+    </div>
+
+    <!--เตรียมเที่ยวนอกประเทศ-->
+    <div id="travelout" class="checklist-section">
+      <h2เตรียมเที่ยวต่างประเทศ</h2>
+
+      <h4>เอกสาร</h4>
+      <ul id="travelout-docs">
         <li><input type="checkbox" /> พาสปอร์ต <button onclick="removeItem(this)">ลบ</button></li>
         <li><input type="checkbox" /> ตั๋วเครื่องบิน <button onclick="removeItem(this)">ลบ</button></li>
       </ul>
