@@ -1,33 +1,71 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>เที่ยวตุรเคีย</title>
+  <meta charset="UTF-8">
+  <title>หมวดหมู่เช็คลิสต์</title>
   <style>
-    body { font-family: sans-serif; background-color: #f4f4f4; padding: 20px; }
-    h1 { color: #cc0000; }
+    body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
+    h2 { color: #cc0000; }
+    .category { background: #fff; padding: 15px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 5px #ccc; }
     ul { list-style: none; padding: 0; }
-    li { margin-bottom: 10px; }
-    label { display: flex; align-items: center; }
-    input[type="checkbox"] { margin-right: 10px; }
+    li { margin-bottom: 10px; display: flex; align-items: center; }
+    li input[type="checkbox"] { margin-right: 10px; }
+    li button { margin-left: auto; color: red; background: none; border: none; cursor: pointer; }
+    form input[type="text"] { padding: 5px; width: 60%; margin-right: 10px; }
   </style>
 </head>
 <body>
-  <h1>เที่ยวตุรเคีย</h1>
-  <ul>
-    <li><label><input type="checkbox" /> พาสปอร์ต (หมดอายุไม่เกิน 6 เดือน)</label></li>
-    <li><label><input type="checkbox" /> วีซ่า E-Visa ตุรเคีย (สมัครออนไลน์)</label></li>
-    <li><label><input type="checkbox" /> ตั๋วเครื่องบิน ไป-กลับ</label></li>
-    <li><label><input type="checkbox" /> จองที่พัก (โรงแรม / Airbnb)</label></li>
-    <li><label><input type="checkbox" /> ประกันการเดินทาง</label></li>
-    <li><label><input type="checkbox" /> เสื้อผ้าตามฤดูกาล (กันหนาว/สบาย)</label></li>
-    <li><label><input type="checkbox" /> ปลั๊กแปลงหัวแบบยุโรป (Type C/F)</label></li>
-    <li><label><input type="checkbox" /> เงินสด + บัตรเครดิต/เดบิต</label></li>
-    <li><label><input type="checkbox" /> SIM หรือ eSIM สำหรับใช้อินเทอร์เน็ต</label></li>
-    <li><label><input type="checkbox" /> กล้องถ่ายรูป / Power Bank</label></li>
-    <li><label><input type="checkbox" /> ยาประจำตัว</label></li>
-    <li><label><input type="checkbox" /> แผนที่ / แอพแปลภาษา</label></li>
-  </ul>
+  <div class="category" id="exam">
+    <h2>1. เตรียมไปสอบ</h2>
+    <form onsubmit="addItem(event, 'exam-list')">
+      <input type="text" placeholder="เพิ่มรายการ..." />
+      <button type="submit">เพิ่ม</button>
+    </form>
+    <ul id="exam-list">
+      <li><input type="checkbox"> บัตรประชาชน <button onclick="removeItem(this)">ลบ</button></li>
+      <li><input type="checkbox"> ปากกา ดินสอ ยางลบ <button onclick="removeItem(this)">ลบ</button></li>
+    </ul>
+  </div>
+  <div class="category" id="travel">
+    <h2>2. ไปเที่ยว</h2>
+
+    <h4>เอกสาร</h4>
+    <ul id="travel-docs">
+      <li><input type="checkbox"> พาสปอร์ต <button onclick="removeItem(this)">ลบ</button></li>
+      <li><input type="checkbox"> ตั๋วเครื่องบิน <button onclick="removeItem(this)">ลบ</button></li>
+    </ul>
+    <form onsubmit="addItem(event, 'travel-docs')">
+      <input type="text" placeholder="เพิ่มเอกสาร..." />
+      <button type="submit">เพิ่ม</button>
+    </form>
+
+    <h4>ของใช้</h4>
+    <ul id="travel-stuff">
+      <li><input type="checkbox"> เสื้อผ้า / ของใช้ส่วนตัว <button onclick="removeItem(this)">ลบ</button></li>
+    </ul>
+    <form onsubmit="addItem(event, 'travel-stuff')">
+      <input type="text" placeholder="เพิ่มของใช้..." />
+      <button type="submit">เพิ่ม</button>
+    </form>
+  </div>
+
+  <script>
+    function addItem(event, listId) {
+      event.preventDefault();
+      const input = event.target.querySelector('input[type="text"]');
+      const text = input.value.trim();
+      if (!text) return;
+      const ul = document.getElementById(listId);
+      const li = document.createElement('li');
+      li.innerHTML = '<input type="checkbox"> ' + text + ' <button onclick="removeItem(this)">ลบ</button>';
+      ul.appendChild(li);
+      input.value = '';
+    }
+
+    function removeItem(button) {
+      button.parentElement.remove();
+    }
+  </script>
+
 </body>
 </html>
