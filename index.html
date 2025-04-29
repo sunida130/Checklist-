@@ -28,7 +28,6 @@
   </div>
   <div class="category" id="travel">
     <h2>2. ไปเที่ยว</h2>
-
     <h4>เอกสาร</h4>
     <ul id="travel-docs">
       <li><input type="checkbox"> พาสปอร์ต <button onclick="removeItem(this)">ลบ</button></li>
@@ -38,7 +37,6 @@
       <input type="text" placeholder="เพิ่มเอกสาร..." />
       <button type="submit">เพิ่ม</button>
     </form>
-
     <h4>ของใช้</h4>
     <ul id="travel-stuff">
       <li><input type="checkbox"> เสื้อผ้า / ของใช้ส่วนตัว <button onclick="removeItem(this)">ลบ</button></li>
@@ -48,24 +46,15 @@
       <button type="submit">เพิ่ม</button>
     </form>
   </div>
-
   <script>
-    function addItem(event, listId) {
-      event.preventDefault();
+    function addItem(event, listId) { event.preventDefault();
       const input = event.target.querySelector('input[type="text"]');
       const text = input.value.trim();
       if (!text) return;
       const ul = document.getElementById(listId);
-      const li = document.createElement('li');
-      li.innerHTML = '<input type="checkbox"> ' + text + ' <button onclick="removeItem(this)">ลบ</button>';
-      ul.appendChild(li);
-      input.value = '';
-    }
-
-    function removeItem(button) {
-      button.parentElement.remove();
-    }
+      const li = document.createElement('li'); li.innerHTML = '<input type="checkbox"> ' + text + ' <button onclick="removeItem(this)">ลบ</button>';
+      ul.appendChild(li);input.value = '';    }
+    function removeItem(button) { button.parentElement.remove();  }
   </script>
-
 </body>
 </html>
