@@ -1,62 +1,166 @@
+
 <!DOCTYPE html>
 <html lang="th">
 <head>
-  <meta charset="UTF-8">
-  <title>หมวดหมู่เช็คลิสต์</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>แอพเช็คลิสต์</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; background: #f9f9f9; }
-    h2 { color: #cc0000; }
-    .category { background: #fff; padding: 15px; margin-bottom: 20px; border-radius: 10px; box-shadow: 0 0 5px #ccc; }
-    ul { list-style: none; padding: 0; }
-    li { margin-bottom: 10px; display: flex; align-items: center; }
-    li input[type="checkbox"] { margin-right: 10px; }
-    li button { margin-left: auto; color: red; background: none; border: none; cursor: pointer; }
-    form input[type="text"] { padding: 5px; width: 60%; margin-right: 10px; }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 200px;
+      background-color: #333;
+      color: white;
+      height: 100vh;
+      padding-top: 20px;
+      box-sizing: border-box;
+    }
+
+    .sidebar button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: none;
+      color: white;
+      text-align: left;
+      cursor: pointer;
+      border-bottom: 1px solid #444;
+    }
+
+    .sidebar button:hover {
+      background-color: #444;
+    }
+
+    /* Main content */
+    .content {
+      flex: 1;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+
+    .checklist-section {
+      display: none;
+    }
+
+    .checklist-section.active {
+      display: block;
+    }
+
+    h2 {
+      color: #cc0000;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    li input[type="checkbox"] {
+      margin-right: 10px;
+    }
+
+    li button {
+      margin-left: auto;
+      background: none;
+      color: red;
+      border: none;
+      cursor: pointer;
+    }
+
+    form input[type="text"] {
+      padding: 5px;
+      width: 60%;
+      margin-right: 10px;
+    }
   </style>
 </head>
 <body>
-  <div class="category" id="exam">
-    <h2>1. เตรียมไปสอบ</h2>
-    <form onsubmit="addItem(event, 'exam-list')">
-      <input type="text" placeholder="เพิ่มรายการ..." />
-      <button type="submit">เพิ่ม</button>
-    </form>
-    <ul id="exam-list">
-      <li><input type="checkbox"> บัตรประชาชน <button onclick="removeItem(this)">ลบ</button></li>
-      <li><input type="checkbox"> ปากกา ดินสอ ยางลบ <button onclick="removeItem(this)">ลบ</button></li>
-    </ul>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <button onclick="showSection('exam')">1. เตรียมไปสอบ</button>
+    <button onclick="showSection('travel')">2. ไปเที่ยว</button>
   </div>
-  <div class="category" id="travel">
-    <h2>2. ไปเที่ยว</h2>
-    <h4>เอกสาร</h4>
-    <ul id="travel-docs">
-      <li><input type="checkbox"> พาสปอร์ต <button onclick="removeItem(this)">ลบ</button></li>
-      <li><input type="checkbox"> ตั๋วเครื่องบิน <button onclick="removeItem(this)">ลบ</button></li>
-      <li><input type="checkbox"> ปลั๊กแปลงหัวแบบยุโรป (Type C/F) <button onclick="removeItem(this)">ลบ</button></li>
-      <li><input type="checkbox"> ยาประจำตัว <button onclick="removeItem(this)">ลบ</button></li>
-    </ul>
-    <form onsubmit="addItem(event, 'travel-docs')">
-      <input type="text" placeholder="เพิ่มเอกสาร..." />
-      <button type="submit">เพิ่ม</button>
-    </form>
-    <h4>ของใช้</h4>
-    <ul id="travel-stuff">
-      <li><input type="checkbox"> เสื้อผ้า / ของใช้ส่วนตัว <button onclick="removeItem(this)">ลบ</button></li>
-    </ul>
-    <form onsubmit="addItem(event, 'travel-stuff')">
-      <input type="text" placeholder="เพิ่มของใช้..." />
-      <button type="submit">เพิ่ม</button>
-    </form>
+
+  <!-- Main Content -->
+  <div class="content">
+    
+    <!-- เตรียมไปสอบ -->
+    <div id="exam" class="checklist-section active">
+      <h2>เตรียมไปสอบ</h2>
+      <form onsubmit="addItem(event, 'exam-list')">
+        <input type="text" placeholder="เพิ่มรายการ..." />
+        <button type="submit">เพิ่ม</button>
+      </form>
+      <ul id="exam-list">
+        <li><input type="checkbox" /> บัตรนักศึกษา <button onclick="removeItem(this)">ลบ</button></li>
+        <li><input type="checkbox" /> ปากกา ดินสอ ยางลบ <button onclick="removeItem(this)">ลบ</button></li>
+      </ul>
+    </div>
+
+    <!-- ไปเที่ยว -->
+    <div id="travel" class="checklist-section">
+      <h2>ไปเที่ยว</h2>
+
+      <h4>เอกสาร</h4>
+      <ul id="travel-docs">
+        <li><input type="checkbox" /> พาสปอร์ต <button onclick="removeItem(this)">ลบ</button></li>
+        <li><input type="checkbox" /> ตั๋วเครื่องบิน <button onclick="removeItem(this)">ลบ</button></li>
+      </ul>
+      <form onsubmit="addItem(event, 'travel-docs')">
+        <input type="text" placeholder="เพิ่มเอกสาร..." />
+        <button type="submit">เพิ่ม</button>
+      </form>
+
+      <h4>ของใช้</h4>
+      <ul id="travel-stuff">
+        <li><input type="checkbox" /> เสื้อผ้า / ของใช้ส่วนตัว <button onclick="removeItem(this)">ลบ</button></li>
+      </ul>
+      <form onsubmit="addItem(event, 'travel-stuff')">
+        <input type="text" placeholder="เพิ่มของใช้..." />
+        <button type="submit">เพิ่ม</button>
+      </form>
+    </div>
+
   </div>
+
+  <!-- JavaScript -->
   <script>
-    function addItem(event, listId) { event.preventDefault();
+    function showSection(id) {
+      const sections = document.querySelectorAll('.checklist-section');
+      sections.forEach(section => section.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    function addItem(event, listId) {
+      event.preventDefault();
       const input = event.target.querySelector('input[type="text"]');
       const text = input.value.trim();
       if (!text) return;
       const ul = document.getElementById(listId);
-      const li = document.createElement('li'); li.innerHTML = '<input type="checkbox"> ' + text + ' <button onclick="removeItem(this)">ลบ</button>';
-      ul.appendChild(li);input.value = '';    }
-    function removeItem(button) { button.parentElement.remove();  }
+      const li = document.createElement('li');
+      li.innerHTML = '<input type="checkbox"> ' + text + ' <button onclick="removeItem(this)">ลบ</button>';
+      ul.appendChild(li);
+      input.value = '';
+    }
+
+    function removeItem(button) {
+      button.parentElement.remove();
+    }
   </script>
+
 </body>
 </html>
